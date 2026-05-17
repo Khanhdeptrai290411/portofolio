@@ -109,7 +109,7 @@ export default function Navbar({ theme, lang, onToggleTheme, onToggleLang }: Pro
             margin: 0,
             padding: 0,
           }}
-          className="hidden md:flex"
+          className="hidden lg:flex"
         >
           {navItems.map(item => (
             <li key={item.id}>
@@ -144,7 +144,7 @@ export default function Navbar({ theme, lang, onToggleTheme, onToggleLang }: Pro
 
           {/* Hamburger – mobile only */}
           <button
-            className="flex md:hidden"
+            className="flex lg:hidden"
             onClick={() => setMobileOpen(v => !v)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
