@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
@@ -19,7 +18,21 @@ export default function Navbar({ theme, lang, onToggleTheme, onToggleLang }: Pro
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isMobile, setIsMobile] = useState(false);
   const t = translations[lang].nav;
+
+  // Detect screen size
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  // Close mobile menu when switching to desktop
+  useEffect(() => {
+    if (!isMobile) setMobileOpen(false);
+  }, [isMobile]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -100,73 +113,75 @@ export default function Navbar({ theme, lang, onToggleTheme, onToggleLang }: Pro
           Kay<span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>~$</span>
         </button>
 
-        {/* Desktop nav links */}
-        <ul
-          style={{
-            display: 'flex',
-            listStyle: 'none',
-            gap: '2rem',
-            margin: 0,
-            padding: 0,
-          }}
-          className="hidden lg:flex"
-        >
-          {navItems.map(item => (
-            <li key={item.id}>
-              <button
-                onClick={() => scrollTo(item.id)}
-                data-hover
-                aria-label={`Go to ${item.labelEn}`}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.85rem',
-                  fontWeight: activeSection === item.id ? 700 : 400,
-                  color: activeSection === item.id ? 'var(--color-primary)' : 'var(--text-secondary)',
-                  textShadow: activeSection === item.id ? '0 0 8px var(--glow-color)' : 'none',
-                  transition: 'color 0.2s, text-shadow 0.2s',
-                  padding: '4px 0',
-                  borderBottom: activeSection === item.id ? '1px solid var(--color-primary)' : '1px solid transparent',
-                }}
-              >
-                {navLabel(item)}
-              </button>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop nav links — only render when NOT mobile */}
+        {!isMobile && (
+          <ul
+            style={{
+              display: 'flex',
+              listStyle: 'none',
+              gap: '2rem',
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            {navItems.map(item => (
+              <li key={item.id}>
+                <button
+                  onClick={() => scrollTo(item.id)}
+                  data-hover
+                  aria-label={`Go to ${item.labelEn}`}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.85rem',
+                    fontWeight: activeSection === item.id ? 700 : 400,
+                    color: activeSection === item.id ? 'var(--color-primary)' : 'var(--text-secondary)',
+                    textShadow: activeSection === item.id ? '0 0 8px var(--glow-color)' : 'none',
+                    transition: 'color 0.2s, text-shadow 0.2s',
+                    padding: '4px 0',
+                    borderBottom: activeSection === item.id ? '1px solid var(--color-primary)' : '1px solid transparent',
+                  }}
+                >
+                  {navLabel(item)}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* Right controls */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <LanguageToggle lang={lang} onToggle={onToggleLang} />
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
 
-          {/* Hamburger – mobile only */}
-          <button
-            className="flex lg:hidden"
-            onClick={() => setMobileOpen(v => !v)}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={mobileOpen}
-            data-hover
-            style={{
-              background: 'none',
-              border: '1px solid var(--border-color)',
-              borderRadius: '6px',
-              padding: '6px 8px',
-              cursor: 'pointer',
-              color: 'var(--color-primary)',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
+          {/* Hamburger — only on mobile */}
+          {isMobile && (
+            <button
+              onClick={() => setMobileOpen(v => !v)}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
+              data-hover
+              style={{
+                background: 'none',
+                border: '1px solid var(--border-color)',
+                borderRadius: '6px',
+                padding: '6px 8px',
+                cursor: 'pointer',
+                color: 'var(--color-primary)',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          )}
         </div>
       </nav>
 
-      {/* Mobile dropdown */}
-      {mobileOpen && (
+      {/* Mobile dropdown — only shown when mobile menu is open */}
+      {isMobile && mobileOpen && (
         <div
           role="dialog"
           aria-modal="true"

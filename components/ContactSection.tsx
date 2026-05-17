@@ -35,13 +35,13 @@ export default function ContactSection({ lang }: Props) {
     setStatus('sending');
 
     try {
-      const emailjs = (await import('@emailjs/browser')).default;
-      await emailjs.send(
-        'service_dbehtno', 
-        'template_ebjh1wn',
-        { name, email, message },
-        'iAhy7LoOQkac9QZLT'
-      );
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (!res.ok) throw new Error('Server error');
 
       setStatus('success');
       setName('');
@@ -49,7 +49,7 @@ export default function ContactSection({ lang }: Props) {
       setMessage('');
       setTimeout(() => setStatus('idle'), 5000);
     } catch (error) {
-      console.error('EmailJS error:', error);
+      console.error('Mail error:', error);
       setStatus('error');
       setTimeout(() => setStatus('idle'), 5000);
     }
