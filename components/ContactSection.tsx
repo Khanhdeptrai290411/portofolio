@@ -34,18 +34,25 @@ export default function ContactSection({ lang }: Props) {
     e.preventDefault();
     setStatus('sending');
 
-    // TODO: Replace with real EmailJS call using your keys:
-    // import emailjs from '@emailjs/browser';
-    // await emailjs.send('service_dbehtno', 'template_ebjh1wn', { name, email, message }, 'iAhy7LoOQkac9QZLT');
+    try {
+      const emailjs = (await import('@emailjs/browser')).default;
+      await emailjs.send(
+        'service_dbehtno', 
+        'template_ebjh1wn',
+        { name, email, message },
+        'iAhy7LoOQkac9QZLT'
+      );
 
-    // Simulated response for UI demonstration:
-    setTimeout(() => {
       setStatus('success');
       setName('');
       setEmail('');
       setMessage('');
       setTimeout(() => setStatus('idle'), 5000);
-    }, 1200);
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   const inputStyle: React.CSSProperties = {
