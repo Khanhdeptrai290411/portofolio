@@ -118,7 +118,7 @@ export default function HeroSection({ lang }: Props) {
               download
               className="btn-primary"
               data-hover
-              style={{ cursor: 'none' }}
+              style={{ cursor: 'pointer' }}
             >
               <Download size={15} />
               {t.downloadCV}
@@ -127,7 +127,7 @@ export default function HeroSection({ lang }: Props) {
               onClick={() => scrollTo('projects')}
               className="btn-outline"
               data-hover
-              style={{ cursor: 'none' }}
+              style={{ cursor: 'pointer' }}
             >
               {t.viewProjects}
               <ArrowRight size={15} />
@@ -136,7 +136,7 @@ export default function HeroSection({ lang }: Props) {
               onClick={() => scrollTo('contact')}
               className="btn-outline"
               data-hover
-              style={{ cursor: 'none' }}
+              style={{ cursor: 'pointer' }}
             >
               <Mail size={15} />
               {t.contactMe}
@@ -154,7 +154,7 @@ export default function HeroSection({ lang }: Props) {
               style={{
                 color: 'var(--text-secondary)',
                 transition: 'color 0.2s, transform 0.2s',
-                cursor: 'none',
+                cursor: 'pointer',
               }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.color = 'var(--color-primary)';
@@ -176,7 +176,7 @@ export default function HeroSection({ lang }: Props) {
               style={{
                 color: 'var(--text-secondary)',
                 transition: 'color 0.2s, transform 0.2s',
-                cursor: 'none',
+                cursor: 'pointer',
               }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.color = 'var(--color-primary)';

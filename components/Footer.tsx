@@ -59,7 +59,7 @@ export default function Footer({ lang }: Props) {
                       style={{
                         background: 'none',
                         border: 'none',
-                        cursor: 'none',
+                        cursor: 'pointer',
                         fontFamily: 'var(--font-mono)',
                         fontSize: '0.82rem',
                         color: 'var(--text-secondary)',
@@ -103,7 +103,7 @@ export default function Footer({ lang }: Props) {
                     display: 'flex',
                     alignItems: 'center',
                     transition: 'all 0.2s',
-                    cursor: 'none',
+                    cursor: 'pointer',
                   }}
                   onMouseEnter={e => {
                     const el = e.currentTarget as HTMLElement;

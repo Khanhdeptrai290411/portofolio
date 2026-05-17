@@ -12,7 +12,7 @@ export const personalInfo = {
   major: "Information Technology",
   japanese: "N3",
   focus: "Web / Mobile / AI",
-  cvPath: "/Nguyen-Dinh-Quoc-Khanh-FlowCV-Resume-20250618.pdf",
+  cvPath: "/NGUYEN_DINH_QUOC_KHANH_履歴書.doc",
   avatarPath: "/images/Me.jpg",
 };
 

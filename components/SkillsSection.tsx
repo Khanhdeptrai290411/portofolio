@@ -73,7 +73,7 @@ export default function SkillsSection({ lang }: Props) {
                   color: activeCategory === cat ? 'var(--color-primary)' : 'var(--text-secondary)',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.78rem',
-                  cursor: 'none',
+                  cursor: 'pointer',
                   transition: 'all 0.2s',
                 }}
               >

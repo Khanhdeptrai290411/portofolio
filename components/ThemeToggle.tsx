@@ -19,7 +19,7 @@ export default function ThemeToggle({ theme, onToggle }: Props) {
         border: '1px solid var(--border-color)',
         borderRadius: '8px',
         padding: '6px 10px',
-        cursor: 'none',
+        cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

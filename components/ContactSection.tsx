@@ -202,7 +202,7 @@ export default function ContactSection({ lang }: Props) {
                   className="btn-primary"
                   data-hover
                   style={{
-                    cursor: 'none',
+                    cursor: 'pointer',
                     opacity: status === 'sending' ? 0.7 : 1,
                     justifyContent: 'center',
                   }}

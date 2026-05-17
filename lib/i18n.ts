@@ -39,6 +39,8 @@ export const translations = {
       majorLabel: "major",
       japaneseLabel: "japanese",
       focusLabel: "focus",
+      gpa: "3.25",
+      gpaLabel: "GPA",
     },
     skills: {
       sectionTitle: "Skills",
@@ -134,6 +136,8 @@ export const translations = {
       majorLabel: "専攻",
       japaneseLabel: "日本語",
       focusLabel: "専門分野",
+      gpa: "3.25",
+      gpaLabel: "GPA",
     },
     skills: {
       sectionTitle: "スキル",

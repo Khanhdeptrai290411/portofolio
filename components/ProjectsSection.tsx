@@ -147,7 +147,7 @@ function ProjectCard({ project, lang, t }: { project: Project; lang: Lang; t: Pr
                 padding: '5px 10px',
                 textDecoration: 'none',
                 transition: 'all 0.2s',
-                cursor: 'none',
+                cursor: 'pointer',
               }}
               onMouseEnter={e => {
                 const el = e.currentTarget as HTMLElement;

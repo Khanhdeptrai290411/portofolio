@@ -24,7 +24,7 @@ export default function LanguageToggle({ lang, onToggle }: Props) {
         border: '1px solid var(--border-color)',
         borderRadius: '8px',
         padding: '5px 12px',
-        cursor: 'none',
+        cursor: 'pointer',
         color: 'var(--color-primary)',
         fontFamily: 'var(--font-mono)',
         fontSize: '0.78rem',

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { MapPin, GraduationCap, BookOpen, Languages, Focus } from 'lucide-react';
+import { MapPin, GraduationCap, BookOpen, Languages, Focus, Award } from 'lucide-react';
 import { translations, type Lang } from '@/lib/i18n';
 
 interface Props { lang: Lang; }
@@ -40,6 +40,7 @@ export default function AboutSection({ lang }: Props) {
     { icon: <MapPin size={14} />, label: t.locationLabel, value: t.location },
     { icon: <GraduationCap size={14} />, label: t.educationLabel, value: t.education },
     { icon: <BookOpen size={14} />, label: t.majorLabel, value: t.major },
+    { icon: <Award size={14} />, label: t.gpaLabel, value: t.gpa },
     { icon: <Languages size={14} />, label: t.japaneseLabel, value: t.japanese },
     { icon: <Focus size={14} />, label: t.focusLabel, value: t.focus },
   ];

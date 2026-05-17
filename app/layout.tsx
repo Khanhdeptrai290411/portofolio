@@ -3,7 +3,6 @@
 import './globals.css';
 import { useState, useEffect } from 'react';
 import type { Lang } from '@/lib/i18n';
-import CustomCursor from '@/components/CustomCursor';
 import ScrollProgressBar from '@/components/ScrollProgressBar';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -60,7 +59,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={theme === 'light' ? 'light' : ''}>
-        <CustomCursor />
         <ScrollProgressBar />
         <Navbar theme={theme} lang={lang} onToggleTheme={toggleTheme} onToggleLang={toggleLang} />
         <main>{children}</main>
