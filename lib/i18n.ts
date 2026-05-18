@@ -28,7 +28,7 @@ export const translations = {
     about: {
       sectionTitle: "About Me",
       terminalPrompt: "kay@portfolio:~/about$ cat profile.txt",
-      bio: "I am a third-year Information Technology student with a strong passion for web development and full-stack engineering. I have practical experience in frontend and backend development using ReactJS, Flutter, Node.js, Laravel and PHP. I enjoy building responsive, efficient and user-centered applications, while continuously improving my skills in web, mobile and AI-related technologies.",
+      bio: "I am a third-year Information Technology student with a strong passion for web, mobile and full-stack engineering. I have practical experience in frontend, backend and mobile development using ReactJS, Flutter, React Native, Node.js, Laravel and PHP. I enjoy building responsive, efficient and user-centered applications, while continuously improving my skills in web, mobile and AI-related technologies.",
       location: "Da Nang, Vietnam",
       education: "VKU – Vietnam Korea University of ICT",
       major: "Information Technology",
@@ -125,7 +125,7 @@ export const translations = {
     about: {
       sectionTitle: "自己紹介",
       terminalPrompt: "kay@portfolio:~/about$ cat profile.txt",
-      bio: "私は現在、情報技術を学ぶ大学3年生で、Web開発とフルスタック開発に強い関心があります。ReactJS、Flutter、Node.js、Laravel、PHPなどを用いたフロントエンド・バックエンド開発の経験があり、使いやすく効率的なアプリケーション開発を目指しています。また、Web、モバイル、AI関連技術の学習にも継続的に取り組んでいます。",
+      bio: "私は現在、情報技術を学ぶ大学3年生で、Web・モバイル・フルスタック開発に強い関心があります。ReactJS、Flutter、React Native、Node.js、Laravel、PHPなどを用いたフロントエンド・バックエンド・モバイル開発の経験があり、使いやすく効率的なアプリケーション開発を目指しています。また、Web、モバイル、AI関連技術の学習にも継続的に取り組んでいます。",
       location: "ダナン、ベトナム",
       education: "VKU – ベトナム韓国情報通信技術大学",
       major: "情報技術",
